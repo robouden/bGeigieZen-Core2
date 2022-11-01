@@ -452,7 +452,7 @@ void setup()
 
   // SENSOR  setup for 
     conversionCoefficient = 1 / 340;
-    attachInterrupt(2, onPulse, FALLING);
+    attachInterrupt(32, onPulse, FALLING);
 
   // Start I2C communications for battery level indicator
     Wire.begin();
