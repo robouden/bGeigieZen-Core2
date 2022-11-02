@@ -105,7 +105,9 @@ int interruptCounterAvailable()
 //setup buttons test more infor at https://github.com/m5stack/M5Stack/pull/232
     ButtonColors onCol = {BLACK, WHITE, WHITE};
     ButtonColors offCol = {RED, WHITE, WHITE};
-    Button myButton(10, 10, 200, 100, false, "I'm a button !", onCol, offCol);
+    Button myButton1(10, 10, 200, 100, false, "I'm button 1!", onCol, offCol);
+    Button myButton2(30, 10, 200, 100, false, "I'm button 2!", onCol, offCol);
+    Button myButton3(50, 10, 200, 100, false, "I'm button 3!", onCol, offCol);
 
 // Displays battery level rough. Needs to be changed to bGeigieNano read LiPo fuelgauge.
   int8_t getBatteryLevel()
@@ -586,9 +588,11 @@ void loop()
         Serial.println(total_count);
         Serial.println();
         
-      // react to button
-          M5.update();
-          if (myButton.wasPressed()) Serial.print("* ");
+      // react to buttons
+          // M5.update();
+          // if (myButton1.wasPressed()) Serial.print("1 ");
+          // if (myButton2.wasPressed()) Serial.print("2 ");
+          // if (myButton3.wasPressed()) Serial.print("3 ");
     }
 
 }
