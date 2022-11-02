@@ -102,10 +102,10 @@ int interruptCounterAvailable()
     return counts_per_sample;
   }
 
-//setup buttons test
-   Button myButton(10, 10, 200, 100, false, "I'm a button !",
-                    {BLACK, WHITE, WHITE});
-
+//setup buttons test more infor at https://github.com/m5stack/M5Stack/pull/232
+    ButtonColors onCol = {BLACK, WHITE, WHITE};
+    ButtonColors offCol = {RED, WHITE, WHITE};
+    Button myButton(10, 10, 200, 100, false, "I'm a button !", onCol, offCol);
 
 // Displays battery level rough. Needs to be changed to bGeigieNano read LiPo fuelgauge.
   int8_t getBatteryLevel()
