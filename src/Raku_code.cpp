@@ -102,6 +102,11 @@ int interruptCounterAvailable()
     return counts_per_sample;
   }
 
+//setup buttons test
+   Button myButton(10, 10, 200, 100, false, "I'm a button !",
+                    {BLACK, WHITE, WHITE});
+
+
 // Displays battery level rough. Needs to be changed to bGeigieNano read LiPo fuelgauge.
   int8_t getBatteryLevel()
   {
@@ -497,7 +502,7 @@ void loop()
 //Display GPS data
     M5.Lcd.setCursor(0 , 150);
     M5.Lcd.setTextColor(WHITE, BLACK);
-    M5.Lcd.print("Satelites  :");
+    M5.Lcd.print("Satellites  :");
     printInt(gps.satellites.value(), gps.satellites.isValid(), 5);
     M5.Lcd.println();
     M5.Lcd.print("Latitude   :");
@@ -530,6 +535,8 @@ void loop()
 
   if (millis() > 5000 && gps.charsProcessed() < 10)
     M5.Lcd.println(F("No GPS data received: check wiring"));
+
+
 
   // Send reading data if IS_READY is passed when 
   if IS_READY {
@@ -578,5 +585,10 @@ void loop()
         Serial.print("Total counts =");
         Serial.println(total_count);
         Serial.println();
+        
+      // react to button
+          M5.update();
+          if (myButton.wasPressed()) Serial.print("* ");
     }
+
 }
